@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #e50914; 
+    --primary-color: #e50914;
     --dark-color: #141414;
     --light-color: #f5f5f5;
     --grey-color: #808080;
@@ -48,8 +48,8 @@ body {
     color: var(--primary-color);
     margin-bottom: 20px;
     position: relative;
-    left: -45%; 
-    transition: left 2s ease-out; 
+    left: -45%;
+    transition: left 2s ease-out;
 }
 
 #loader .progress-bar-container {
@@ -66,7 +66,7 @@ body {
     height: 100%;
     background: var(--primary-color);
     border-radius: 5px;
-    transition: width 2s ease-out; 
+    transition: width 2s ease-out;
 }
 
 #loader p {
@@ -133,7 +133,7 @@ header .container {
 }
 
 #menu-toggle {
-    display: none; 
+    display: none;
     background: none;
     border: none;
     color: var(--light-color);
@@ -153,7 +153,7 @@ header .container {
     font-size: 4rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 .hero-content h3 {
@@ -196,7 +196,7 @@ footer {
     #nav-menu {
         position: fixed;
         top: 0;
-        right: -100%; 
+        right: -100%;
         width: 70%;
         height: 100vh;
         background: var(--dark-color);
@@ -207,7 +207,7 @@ footer {
     }
 
     #nav-menu.active {
-        right: 0; 
+        right: 0;
     }
 
     #nav-menu ul {
@@ -224,13 +224,19 @@ footer {
 
     #menu-toggle {
         display: block;
-        z-index: 101; 
+        z-index: 101;
     }
-    
+
     .hero-content h2 {
         font-size: 2.5rem;
     }
+
     .hero-content h3 {
         font-size: 1.2rem;
+    }
+
+    #loader .kart-icon img {
+        width: 80px;
+        height: auto;
     }
 }
