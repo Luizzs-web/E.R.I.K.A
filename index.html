@@ -12,19 +12,29 @@
 </head>
 <body>
     <div id="loader">
-        <div class="loader-animation-wrapper">
-            <div class="kart-icon">
-                <img src="KartRed.png" alt="Ícone de um kart carregando">
-            </div>
-            <div class="progress-bar-container">
-                <div class="progress-bar"></div>
+        <div class="animation-container">
+            <div class="loader-animation-wrapper">
+                <div class="kart-icon">
+                    <img src="KartRed.png" alt="Ícone de um kart carregando">
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
             </div>
         </div>
-        <p>Carregando E.R.I.K.A....</p>
+        <div id="welcome-message">
+            <span class="welcome-text">Bem vindo ao </span>
+            <span class="brand-name">
+                <span class="char">E</span><span class="char">.</span><span class="char">R</span><span class="char">.</span><span class="char">I</span><span class="char">.</span><span class="char">K</span><span class="char">.</span><span class="char">A</span>
+            </span>
+        </div>
     </div>
     <header>
         <div class="container">
             <h1 class="logo">E.R.I.K.A.</h1>
+            <button id="menu-toggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav id="nav-menu">
                 <ul>
                     <li><a href="#inicio" class="nav-link">Início</a></li>
@@ -35,15 +45,12 @@
                 </ul>
                 <a href="#login" class="login-button nav-link">Login</a>
             </nav>
-            <button id="menu-toggle" aria-label="Abrir menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </div>
     </header>
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <h2>Bem-vindo ao E.R.I.K.A.</h2>
+                <h2>E.R.I.K.A.</h2>
                 <h3>Environment for Reservation, Information, and Kart Administration</h3>
                 <p>Otimize a gestão da sua pista de kart com nossa plataforma completa. Controle reservas, pilotos, karts e finanças de forma ágil e confiável.</p>
                 <a href="#reservas" class="cta-button nav-link">Faça sua Reserva Agora</a>
@@ -51,7 +58,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 E.R.I.K.A. - Todos os direitos reservados.</p>
+        <p>&copy; 2025 E.R.I.K.A. - Todos os direitos reservados - KLL.</p>
     </footer>
     <script src="script.js"></script>
 </body>

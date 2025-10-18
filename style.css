@@ -13,12 +13,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--dark-color);
+    background-color: var(--dark-color); /* Alterado: Fundo agora é apenas preto */
     color: var(--light-color);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://images.unsplash.com/photo-1582951480719-6120588ce9f8?q=80&w=1932);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     overflow-x: hidden;
 }
 
@@ -43,26 +39,31 @@ body {
     transition: opacity 0.5s ease;
 }
 
+.animation-container,
+#welcome-message {
+    transition: opacity 0.5s ease-in-out;
+}
+
 .loader-animation-wrapper {
     position: relative;
     width: 90%;
     max-width: 400px;
-    margin-bottom: 20px;
+    height: 80px;
 }
 
 #loader .kart-icon {
-    width: 85px;
-    height: 85px;
+    width: 75px;
+    height: 75px;
     position: absolute;
-    left: 0;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
-    transition: left 2s ease-out;
+    transition: right 2s ease-out;
     z-index: 2;
 }
 
 #loader .kart-icon.driving {
-    left: calc(100% - 140px);
+    right: calc(100% - 75px);
 }
 
 #loader .kart-icon img {
@@ -71,12 +72,15 @@ body {
 }
 
 #loader .progress-bar-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
     width: 100%;
-    max-width: 100%;
     height: 10px;
     background: #333;
     border-radius: 5px;
-    overflow: hidden;
+    z-index: 1;
 }
 
 #loader .progress-bar {
@@ -87,25 +91,95 @@ body {
     transition: width 2s ease-out;
 }
 
-#loader p {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: var(--grey-color);
+#welcome-message {
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    visibility: hidden;
 }
 
+#welcome-message .brand-name {
+    color: var(--primary-color);
+    font-weight: 900;
+}
+
+@keyframes revealLetter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#welcome-message .char {
+    opacity: 0;
+    display: inline-block;
+}
+
+#welcome-message.animate .char {
+    animation: revealLetter 0.5s forwards;
+}
+
+#welcome-message.animate .char:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+#welcome-message.animate .char:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#welcome-message.animate .char:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+#welcome-message.animate .char:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+#welcome-message.animate .char:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+#welcome-message.animate .char:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+#welcome-message.animate .char:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+#welcome-message.animate .char:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+#welcome-message.animate .char:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+/* Alteração no Header para bandeira de corrida */
 header {
-    background: rgba(0, 0, 0, 0.7);
     padding: 20px 0;
     position: fixed;
     width: 100%;
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Fundo de bandeira quadriculada com sobreposição escura */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        repeating-conic-gradient(#111 0% 25%, #fff 0% 50%);
+    background-size: cover, 40px 40px;
+    border-bottom: 2px solid var(--primary-color);
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -113,16 +187,50 @@ header .container {
     font-weight: 900;
     color: var(--primary-color);
     text-transform: uppercase;
+    text-shadow: 2px 2px 4px #000;
+}
+
+#menu-toggle {
+    background: none;
+    border: none;
+    color: var(--light-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 101;
+}
+
+#nav-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--dark-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+#nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 #nav-menu ul {
     list-style: none;
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 #nav-menu li {
-    margin-left: 25px;
+    margin: 0 0 15px 0;
 }
 
 #nav-menu a {
@@ -140,7 +248,7 @@ header .container {
     background: var(--primary-color);
     padding: 10px 20px;
     border-radius: 5px;
-    margin-left: 25px;
+    margin: 0;
     transition: background-color 0.3s ease;
 }
 
@@ -149,21 +257,16 @@ header .container {
     color: var(--light-color);
 }
 
-#menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--light-color);
-    font-size: 1.8rem;
-    cursor: pointer;
-}
-
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://images.unsplash.com/photo-1610496155829-8fd58a158b0f?q=80&w=1932);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .hero-content h2 {
@@ -210,45 +313,15 @@ footer {
 }
 
 @media (max-width: 768px) {
-    #nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: var(--dark-color);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.5s ease-in-out;
-    }
-
-    #nav-menu.active {
-        right: 0;
-    }
-
-    #nav-menu ul {
-        flex-direction: column;
-    }
-
-    #nav-menu li {
-        margin: 20px 0;
-    }
-
-    #nav-menu .login-button {
-        margin: 20px 0;
-    }
-
-    #menu-toggle {
-        display: block;
-        z-index: 101;
-    }
-
     .hero-content h2 {
         font-size: 2.5rem;
     }
 
     .hero-content h3 {
         font-size: 1.2rem;
+    }
+
+    #welcome-message {
+        font-size: 1.8rem;
     }
 }
