@@ -43,18 +43,36 @@ body {
     transition: opacity 0.5s ease;
 }
 
-#loader .kart-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+.loader-animation-wrapper {
     position: relative;
-    left: -45%;
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+#loader .kart-icon {
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     transition: left 2s ease-out;
+    z-index: 2;
+}
+
+#loader .kart-icon.driving {
+    left: calc(100% - 140px);
+}
+
+#loader .kart-icon img {
+    max-width: 100%;
+    height: auto;
 }
 
 #loader .progress-bar-container {
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 100%;
     height: 10px;
     background: #333;
     border-radius: 5px;
@@ -74,7 +92,6 @@ body {
     font-size: 1.2rem;
     color: var(--grey-color);
 }
-
 
 header {
     background: rgba(0, 0, 0, 0.7);
@@ -233,10 +250,5 @@ footer {
 
     .hero-content h3 {
         font-size: 1.2rem;
-    }
-
-    #loader .kart-icon img {
-        width: 80px;
-        height: auto;
     }
 }

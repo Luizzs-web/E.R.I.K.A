@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
         loader.style.opacity = '1';
         loader.style.display = 'flex';
         progressBar.style.width = '0%';
-        kartIcon.style.left = '-45%';
+        kartIcon.classList.remove('driving');
 
         setTimeout(() => {
             progressBar.style.width = '100%';
-            kartIcon.style.left = '45%';
+            kartIcon.classList.add('driving');
         }, 100);
 
         setTimeout(() => {
@@ -28,19 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); 
-            
-            const destination = link.getAttribute('href'); 
-            
+            event.preventDefault();
+            const destination = link.getAttribute('href');
             startLoadingAnimation();
-
             setTimeout(() => {
-          
                 console.log(`Navegando para ${destination}`);
             }, 2300);
         });
     });
-
 
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
