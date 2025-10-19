@@ -1,76 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
-    const progressBar = document.querySelector('#loader .progress-bar');
     const kartIcon = document.querySelector('#loader .kart-icon');
     const animationContainer = document.querySelector('.animation-container');
     const welcomeMessage = document.getElementById('welcome-message');
+    const trackProgress = document.querySelector('.track-progress');
+    
+    const isNavigating = sessionStorage.getItem('isNavigating');
+    const hasVisited = sessionStorage.getItem('hasVisited');
 
-    function startFullAnimation() {
+    function startLoadingAnimation() {
         loader.style.opacity = '1';
         loader.style.display = 'flex';
+
         animationContainer.style.opacity = '1';
+        animationContainer.style.visibility = 'visible';
         welcomeMessage.style.opacity = '0';
         welcomeMessage.style.visibility = 'hidden';
-        progressBar.style.width = '0%';
+
         kartIcon.classList.remove('driving');
+        trackProgress.style.width = '0%';
 
         setTimeout(() => {
-            progressBar.classList.add('progressing');
-            progressBar.style.width = '100%';
             kartIcon.classList.add('driving');
-        }, 200); 
-
-        setTimeout(() => {
-            animationContainer.style.opacity = '0';
-        }, 2400);
-
-        setTimeout(() => {
-            welcomeMessage.style.visibility = 'visible';
-            welcomeMessage.style.opacity = '1';
-            welcomeMessage.classList.add('animate');
-        }, 2900);
-
-        setTimeout(() => {
-            welcomeMessage.style.opacity = '0';
-        }, 4900); 
-
-        setTimeout(() => {
-            loader.style.opacity = '0';
-        }, 5400); 
-
-        setTimeout(() => {
-            loader.style.display = 'none';
-            sessionStorage.setItem('hasVisited', 'true');
-        }, 5900); 
-    }
-
-    function startQuickAnimation() {
-        loader.style.opacity = '1';
-        loader.style.display = 'flex';
-        animationContainer.style.opacity = '1';
-        welcomeMessage.style.opacity = '0';
-        welcomeMessage.style.visibility = 'hidden';
-        progressBar.style.width = '0%';
-        kartIcon.classList.remove('driving');
-
-        setTimeout(() => {
-            progressBar.classList.add('progressing');
-            progressBar.style.width = '100%';
-            kartIcon.classList.add('driving');
-        }, 200); 
+            trackProgress.style.width = '100%';
+        }, 50);
 
         setTimeout(() => {
             loader.style.opacity = '0';
             setTimeout(() => {
                 loader.style.display = 'none';
             }, 500);
-        }, 2400);
+        }, 2500);
     }
 
-    if (sessionStorage.getItem('hasVisited')) {
-        loader.style.display = 'none';
+    function startWelcomeAnimation() {
+        loader.style.opacity = '1';
+        loader.style.display = 'flex';
+
+        animationContainer.style.opacity = '0';
+        animationContainer.style.visibility = 'hidden';
+        welcomeMessage.style.opacity = '1';
+        welcomeMessage.style.visibility = 'visible';
+
+        welcomeMessage.classList.add('animate');
+
+        setTimeout(() => {
+            welcomeMessage.style.opacity = '0';
+        }, 4000);
+
+        setTimeout(() => {
+            loader.style.opacity = '0';
+        }, 4500);
+
+        setTimeout(() => {
+            loader.style.display = 'none';
+            sessionStorage.setItem('hasVisited', 'true');
+        }, 5000);
+    }
+
+    if (isNavigating === 'true') {
+        sessionStorage.removeItem('isNavigating');
+        startLoadingAnimation();
+    } else if (!hasVisited && window.location.pathname.endsWith('index.html')) {
+        startWelcomeAnimation();
     } else {
-        startFullAnimation();
+        loader.style.display = 'none';
     }
 
     const navLinks = document.querySelectorAll('.nav-link');
@@ -78,10 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
             const destination = link.getAttribute('href');
-            startQuickAnimation();
+            
+            sessionStorage.setItem('isNavigating', 'true');
+            
             setTimeout(() => {
-                console.log(`Navegando para ${destination}`);
-            }, 2500); 
+                 window.location.href = destination;
+            }, 100);
         });
     });
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E.R.I.K.A. - Gestão de Karts</title>
+    <title>Reservas - E.R.I.K.A.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
@@ -49,15 +49,48 @@
         </div>
     </header>
     
-    <main>
-        <section class="hero">
-            <div class="container hero-content">
-                <h2>E.R.I.K.A.</h2>
-                <h3>Environment for Reservation, Information, and Kart Administration</h3>
-                <p>Otimize a gestão da sua pista de kart com nossa plataforma completa. Controle reservas, pilotos, karts e finanças de forma ágil e confiável.</p>
-                <a href="reservas.html" class="cta-button nav-link">Faça sua Reserva Agora</a>
+    <main class="page-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1>Faça sua Reserva</h1>
+                <p>Agende seu horário com antecedência e garanta sua vaga na pista.</p>
+                
+                <div class="page-layout-split">
+                    <div class="form-container">
+                        <form action="#">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required>
+                            
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                            
+                            <label for="data">Data da Reserva</label>
+                            <input type="date" id="data" name="data" required>
+                            
+                            <label for="pilotos">Número de Pilotos</label>
+                            <input type="number" id="pilotos" name="pilotos" min="1" max="10" value="1" required>
+                            
+                            <button type="submit" class="cta-button">Agendar Horário</button>
+                        </form>
+                    </div>
+                    
+                    <div class="rules-container">
+                        <h2>Regras e Preços</h2>
+                        <h3>Preços</h3>
+                        <ul>
+                            <li>Sessão de 30 minutos: R$ 50,00</li>
+                            <li>Pacote de 3 sessões: R$ 135,00 (10% de desconto)</li>
+                            <li>Pacote de 5 sessões: R$ 200,00 (20% de desconto)</li>
+                            <li>Pilotos (8-15 anos): 75% do valor do pacote.</li>
+                            <li>Aluguel individual da pista: R$ 500,00/hora.</li>
+                        </ul>
+                        
+                        <h3>Cancelamento</h3>
+                        <p>Reservas podem ser canceladas com reembolso total até 24 horas antes do horário agendado. Após esse período, será cobrada uma taxa de 30% do valor da sessão.</p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
     </main>
     
     <footer>
