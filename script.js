@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isNavigating === 'true') {
         sessionStorage.removeItem('isNavigating');
         startLoadingAnimation();
-    } else if (!hasVisited && window.location.pathname.endsWith('index.html')) {
+    } else if (!hasVisited && (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html'))) {
         startWelcomeAnimation();
     } else {
         loader.style.display = 'none';
