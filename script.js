@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const trackProgress = document.querySelector('.track-progress');
     
     const isNavigating = sessionStorage.getItem('isNavigating');
-    const hasVisited = sessionStorage.getItem('hasVisited');
 
     function startLoadingAnimation() {
         loader.style.opacity = '1';
@@ -54,17 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             loader.style.display = 'none';
-            sessionStorage.setItem('hasVisited', 'true');
         }, 5000);
     }
 
     if (isNavigating === 'true') {
         sessionStorage.removeItem('isNavigating');
         startLoadingAnimation();
-    } else if (!hasVisited && (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html'))) {
-        startWelcomeAnimation();
     } else {
-        loader.style.display = 'none';
+        startWelcomeAnimation();
     }
 
     const navLinks = document.querySelectorAll('.nav-link');
