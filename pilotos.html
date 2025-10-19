@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta lang="pt-BR">
+    <meta name="viewport" content="width=device-widtj, initial-scale=1.0" <title>Área do piloto - E.R.I.K.A. </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https:fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css" </head>
+
+<body>
+    <div id="loader">
+        <div class="animation-container">
+            <div class="loader-animation-wrapper">
+                <div class="kart-icon">
+                    <img src="KartRed.png" alt="Ícone de um kart carregando">
+                </div>
+                <div class="track-bar">
+                    <div class="track-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="welcome-message">
+        <span class="welcome-text">Bem vindo ao </span>
+        <span class="brand-name">
+            <span class="char">E</span><span class="char">.</span><span class="char">R</span><span
+                class="char">.</span><span class="char">I</span><span class="char">.</span><span
+                class="char">K</span><span class="char">.</span><span class="char">A</span>
+        </span>
+    </div>
+    </div>
+    <header>
+        <div class="container">
+            <h1 class="logo">E.R.I.K.A.</h1>
+            <button id="menu-toggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="reservas.html" class="nav-link">Reservas</a></li>
+                    <li><a href="pilotos.html" class="nav-link">Pilotos</a></li>
+                    <li><a href="pistas.html" class="nav-link">Pistas</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                <a href="login.html" class="login-button nav-link">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1>Área do Piloto</h1>
+                <p>Acesse seu histórico, veja seu desempenho e confira nosso regulamento.</p>
+
+                <div class="page-layout-split">
+                    <div class="rules-container">
+                        <h2>Histórico de Corridas</h2>
+                        <p>Acesse seu perfil para visualizar seu histórico de corridas, tempos de volta e posições.</p>
+                        <a href="login.html" class="cta-button nav-link">Acessar Perfil</a>
+
+                        <h2 style="margin-top: 30px;">Novo Cadastro</h2>
+                        <p>Ainda não é cadastrado? O cadastro é feito presencialmente pela nossa equipe.</p>
+                    </div>
+
+                    <div class="rules-container">
+                        <h2>Regulamento de Pilotos</h2>
+                        <h3>Idade Mínima</h3>
+                        <p>Pilotos devem ter uma idade mínima de 8 anos para participar das corridas.</p>
+                        <ul>
+                            <li>Karts específicos (cadete) estão disponíveis para crianças entre 8 e 12 anos.</li>
+                            <li>Pilotos menores de 18 anos devem estar acompanhados por um responsável.</li>
+                        </ul>
+                        <h3>Equipamentos</h3>
+                        <p>O uso de capacete, balaclava e luvas é obrigatório (fornecemos no local).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 E.R.I.K.A. - Todos os direitos reservados - KLL.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
