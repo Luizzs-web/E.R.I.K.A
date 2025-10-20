@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - E.R.I.K.A.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="animation-container">
+            <div class="loader-animation-wrapper">
+                <div class="kart-icon">
+                    <img src="KartRed.png" alt="Ícone de um kart carregando">
+                </div>
+                <div class="track-bar">
+                    <div class="track-progress"></div>
+                </div>
+            </div>
+        </div>
+        <div id="welcome-message">
+            <span class="welcome-text">Bem vindo ao </span>
+            <span class="brand-name">
+                <span class="char">E</span><span class="char">.</span><span class="char">R</span><span class="char">.</span><span class="char">I</span><span class="char">.</span><span class="char">K</span><span class="char">.</span><span class="char">A</span>
+            </span>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <h1 class="logo">E.R.I.K.A.</h1>
+            <button id="menu-toggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="reservas.html" class="nav-link">Reservas</a></li>
+                    <li><a href="pilotos.html" class="nav-link">Pilotos</a></li>
+                    <li><a href="pistas.html" class="nav-link">Pistas</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                <a href="login.html" class="login-button nav-link">Login</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="page-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1>Entre em Contato</h1>
+                <p>Tire suas dúvidas, envie sugestões ou organize seu evento conosco.</p>
+                
+                <div class="page-layout-split">
+                    <div class="form-container">
+                        <form action="#">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" required>
+                            
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                            
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" name="assunto" required>
+                            
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                            
+                            <button type="submit" class="cta-button">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h2>Nossos Canais</h2>
+                        <p><i class="fa-solid fa-phone"></i> (99) 99999-9999</p>
+                        <p><i class="fa-solid fa-envelope"></i> contato@erika.com.br</p>
+                        <p><i class="fa-solid fa-location-dot"></i> Av. Velocidade, 123, Bairro Curva do S, Cidade - BR</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 E.R.I.K.A. - Todos os direitos reservados - KLL.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
