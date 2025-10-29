@@ -67,6 +67,11 @@
                             <label for="data">Data da Reserva</label>
                             <input type="date" id="data" name="data" required>
                             
+                            <label for="hora">Hora da Reserva (Duração mínima de 30 min)</label>
+                            <input type="time" id="hora" name="hora" required>
+                            
+                            <input type="hidden" id="duracao" name="duracao" value="30">
+                            
                             <label for="pilotos">Número de Pilotos</label>
                             <input type="number" id="pilotos" name="pilotos" min="1" max="10" value="1" required>
                             
@@ -78,15 +83,15 @@
                         <h2>Regras e Preços</h2>
                         <h3>Preços</h3>
                         <ul>
-                            <li>Sessão de 30 minutos: R$ 50,00</li>
-                            <li>Pacote de 3 sessões: R$ 135,00 (10% de desconto)</li>
-                            <li>Pacote de 5 sessões: R$ 200,00 (20% de desconto)</li>
-                            <li>Pilotos (8-15 anos): 75% do valor do pacote.</li>
-                            <li>Aluguel individual da pista: R$ 500,00/hora.</li>
+                            [span_0](start_span)<li>Sessão de 30 minutos: R$ 50,00[span_0](end_span)</li>
+                            [span_1](start_span)<li>Pacote de 3 sessões: R$ 135,00 (10% de desconto)[span_1](end_span)</li>
+                            [span_2](start_span)<li>Pacote de 5 sessões: R$ 200,00 (20% de desconto)[span_2](end_span)</li>
+                            [span_3](start_span)<li>Pilotos (8-15 anos): 75% do valor do pacote.[span_3](end_span)</li>
+                            [span_4](start_span)<li>Aluguel individual da pista: R$ 500,00/hora.[span_4](end_span)</li>
                         </ul>
                         
                         <h3>Cancelamento</h3>
-                        <p>Reservas podem ser canceladas com reembolso total até 24 horas antes do horário agendado. Após esse período, será cobrada uma taxa de 30% do valor da sessão.</p>
+                        <p>Reservas podem ser canceladas com reembolso total até 24 horas antes do horário agendado. [span_5](start_span)Após esse período, será cobrada uma taxa de 30% do valor da sessão.[span_5](end_span)</p>
                     </div>
                 </div>
             </div>
