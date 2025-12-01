@@ -1,3 +1,5 @@
+const BASE_URL = 'http://localhost:3000/api';
+
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     const kartIcon = document.querySelector('#loader .kart-icon');
