@@ -1,7 +1,7 @@
-const BASE_URL = 'http://localhost:3000/api';
+const BASE_URL = 'http://localhost:3000/api'; 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const loader = document.getElementById('loader');
+   const loader = document.getElementById('loader');
     const kartIcon = document.querySelector('#loader .kart-icon');
     const animationContainer = document.querySelector('.animation-container');
     const welcomeMessage = document.getElementById('welcome-message');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const isNavigating = sessionStorage.getItem('isNavigating');
 
-    function startLoadingAnimation() {
+  function startLoadingAnimation() {
         loader.style.opacity = '1';
         loader.style.display = 'flex';
 
@@ -64,8 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         startWelcomeAnimation();
     }
-
-    const navLinks = document.querySelectorAll('.nav-link');
+ const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
@@ -93,4 +92,56 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.classList.add('fa-bars');
         }
     });
+
+  if (window.location.pathname.includes('pilotos.html')) {
+        carregarPilotos();
+    }
 });
+
+function carregarPilotos() {
+   const listaPilotosContainer = document.getElementById('lista-pilotos'); 
+    
+    if (!listaPilotosContainer) {
+        console.warn("Contêiner de lista de pilotos não encontrado (ID #lista-pilotos).");
+        return;
+    }
+    
+   fetch(`${BASE_URL}/pilotos`)
+        .then(response => {
+            if (!response.ok) {
+                console.error('Falha na API. Status:', response.status);
+                throw new Error('Falha na API. Status: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(pilotos => {
+            console.log('Dados recebidos com sucesso:', pilotos);
+         exibirPilotosNaTabela(pilotos, listaPilotosContainer); 
+        })
+        .catch(error => {
+            console.error('Erro de conexão ou busca de dados:', error);
+            listaPilotosContainer.innerHTML = '<tr><td colspan="5" style="color: red;">Erro ao carregar dados. O servidor Node.js está ligado?</td></tr>';
+        });
+}
+
+
+function exibirPilotosNaTabela(listaDePilotos, container) {
+    container.innerHTML = ''; 
+    
+    if (listaDePilotos.length === 0) {
+        container.innerHTML = '<tr><td colspan="5">Nenhum piloto cadastrado.</td></tr>';
+        return;
+    }
+
+    listaDePilotos.forEach(piloto => {
+        const linha = document.createElement('tr');
+      linha.innerHTML = `
+            <td>${piloto.nome}</td>
+            <td>${piloto.email}</td>
+            <td>${piloto.data_nascimento}</td>
+            <td>${piloto.peso} kg</td>
+            <td>${piloto.altura} m</td>
+        `;
+        container.appendChild(linha);
+    });
+}
